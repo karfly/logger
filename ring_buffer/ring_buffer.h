@@ -1,16 +1,13 @@
-#ifndef RING_BUFFER_RING_BUFFER_H
-#define RING_BUFFER_RING_BUFFER_H
+#ifndef RING_BUFFER_H
+#define RING_BUFFER_H
 
-#include <stdint.h> // For uint32_t
+#include <stdint.h> // for uint32_t
+
+#include "../ret_code.h"
 
 #define RING_BUFFER_SIZE 1024
 
-typedef enum
-        {
-        SUCCESS          = 0,
-        ERROR            = 1,
-        WRONG_ARGUMENTS  = 2,
-        } ret_code_t;
+
 
 typedef struct ring_buffer ring_buffer_t;
 typedef void   ring_buffer_elem_t;
@@ -25,4 +22,4 @@ ret_code_t ring_buffer_getn(ring_buffer_t * , ring_buffer_elem_t ** , uint32_t, 
 ret_code_t ring_buffer_print(ring_buffer_t *, void (*) (const ring_buffer_elem_t *));
 
 
-#endif //RING_BUFFER_RING_BUFFER_H
+#endif // RING_BUFFER_H

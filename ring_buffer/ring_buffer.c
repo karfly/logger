@@ -9,12 +9,6 @@
 
 #define POISON_VALUE 0xDEAD
 
-// Internal functions >>>
-
-ret_code_t _ring_buffer_inc(uint32_t * x, uint32_t size);
-
-// >>>
-
 struct ring_buffer
         {
         uint32_t size;
@@ -30,6 +24,12 @@ struct ring_buffer
 
         pthread_mutex_t lock;
         };
+
+// Internal functions >>>
+
+ret_code_t _ring_buffer_inc(uint32_t * x, uint32_t size);
+
+// >>>
 
 ret_code_t ring_buffer_construct(ring_buffer_t ** ring_buffer_ptr, uint32_t size_of_elem)
         {
@@ -242,7 +242,7 @@ ret_code_t ring_buffer_get(ring_buffer_t * ring_buffer, ring_buffer_elem_t * ele
 
         if ((ring_buffer->tail == ring_buffer->head) || (buffer[ring_buffer->tail] == NULL))
                 {
-                fprintf(stderr, "ring_buffer: failed to get element. Reason: ring buffer is empty\n");
+                //fprintf(stderr, "ring_buffer: failed to get element. Reason: ring buffer is empty\n");
                 goto error_empty_ring_buffer;
                 }
 
@@ -305,7 +305,7 @@ ret_code_t ring_buffer_getn(ring_buffer_t * ring_buffer, ring_buffer_elem_t ** e
 
         if ((ring_buffer->tail == ring_buffer->head) || (buffer[ring_buffer->tail] == NULL))
                 {
-                fprintf(stderr, "ring_buffer: failed to get element. Reason: ring buffer is empty\n");
+                //fprintf(stderr, "ring_buffer: failed to get element. Reason: ring buffer is empty\n");
                 goto error_empty_ring_buffer;
                 }
 
