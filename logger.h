@@ -1,7 +1,7 @@
 #ifndef LOGGER_H
 #define LOGGER_H
 
-#include "./ret_code.h"
+#include "ret_code.h"
 
 #define LOG_MAX_MSG_LEN         256
 #define LOG_MAX_MSG_PREFIX_LEN  32

@@ -3,7 +3,7 @@
 
 #include <stdint.h> // for uint32_t
 
-#include "../ret_code.h"
+#include "ret_code.h"
 
 #define RING_BUFFER_SIZE 1024
 
